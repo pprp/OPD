@@ -7,6 +7,7 @@
 - **收工后写日志**：结束时按 @docs/logging.md 中的模板追加本次进展。
 - **测试驱动开发**：先跑 smoke test，确认链路可跑通后，再做大规模实验。
 - **非平凡任务用 harness**：较大的改动用 `/harness <需求>` 跑 Planner→Generator→Evaluator 三智能体循环（自动拆解、实现、独立验收、写日志）；机制见 @docs/design-docs/harness.md。
+- **技术债即时登记**：发现但本次不修的重复代码 / 偏离规范 / 不一致命名等，登记到 @docs/exec-plans/tech-debt-tracker.md，**不要顺手扩大改动范围**；积累的债由 `/harness` 排期清理。
 
 ## 上下文与文档纪律
 

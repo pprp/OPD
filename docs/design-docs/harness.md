@@ -1,6 +1,7 @@
 # OPD Harness 设计：Planner / Generator / Evaluator 三智能体
 
 > 把 README「harness 构造简介」的理念，落地成一套可一键运行的 `/harness` 工作流。
+> 配套：[opd-method.md](opd-method.md)（OPD 机制地面真相）· [experiments.md](experiments.md)（实验矩阵与 `category:"eval"` 卡片）。
 
 ## 1. 背景与来源
 
@@ -52,6 +53,7 @@ Anthropic《Effective harnesses for long-running agents》(2025-11) 给了几个
 - `docs/exec-plans/active/<slug>/plan.md` — 人类可读摘要 + 需人决策清单。
 - `docs/exec-plans/active/<slug>/feedback.md` — **append-only**，每轮 Evaluator 的 VERDICT 与反馈。
 - `docs/logging.md` — 跨会话工作日志，harness 收尾时按其模板在顶部追加一条。
+- `docs/exec-plans/tech-debt-tracker.md` — **跨 slug** 的技术债登记簿（append-only）：Generator/Evaluator 把搁置的改进与非阻塞问题登记于此，Planner 排期时拉取清理。它把「技术债清理」支柱接进三智能体循环，融合机制与条目格式见该文件。
 - **git commit** — 每个 feature 通过即一次描述性提交，作为可回滚检查点。
 
 ## 4. 编排循环
