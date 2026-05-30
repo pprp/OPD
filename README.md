@@ -232,7 +232,7 @@ If you find this work helpful, please cite us:
 </a>
 
 
-## harness 构造简介
+## Openai harness 构造简介
 
 1. 上下文管理
 
@@ -249,3 +249,13 @@ If you find this work helpful, please cite us:
 做法：
 - 设置后台任务，定期扫描代码库 发现问题后直接提PR；
 - 设置后台任务，定期扫描文档库，发现问题后直接提PR；
+
+4. 三智能体编排（Planner / Generator / Evaluator）
+
+参考 Anthropic《Effective harnesses for long-running agents》，把上面的理念落地为可一键运行的 `/harness` 工作流：
+
+- **Planner**：把需求拆成小而可独立验证的 Default-FAIL feature 清单（`features.json`）。
+- **Generator**：一次只实现一个 feature，自检后留干净状态（lint 通过 + 描述性 commit）。
+- **Evaluator**：以全新上下文、只读地独立复验，取证打分并持续反馈——对抗「自己给自己打分」。
+
+用法：`/harness <自然语言需求>`。设计细节见 `docs/design-docs/harness.md`。

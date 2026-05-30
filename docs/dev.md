@@ -6,6 +6,7 @@
 - **开工前读日志**：开始前阅读 @docs/logging.md，掌握已有进度与注意事项。
 - **收工后写日志**：结束时按 @docs/logging.md 中的模板追加本次进展。
 - **测试驱动开发**：先跑 smoke test，确认链路可跑通后，再做大规模实验。
+- **非平凡任务用 harness**：较大的改动用 `/harness <需求>` 跑 Planner→Generator→Evaluator 三智能体循环（自动拆解、实现、独立验收、写日志）；机制见 @docs/design-docs/harness.md。
 
 ## 上下文与文档纪律
 
