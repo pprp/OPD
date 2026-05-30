@@ -178,6 +178,31 @@ python grade.py --enable_model_verifier
 
 *All experiments were conducted on 8 x NVIDIA A800 80GB GPUs.*
 
+## Development
+
+This repository keeps local linting scoped to OPD-owned code. The root lint
+configuration checks `scripts/`, `on_policy_distillation.sh`, and `grpo.sh`,
+while the vendored `LlamaFactory/` and `verl/` directories keep their own
+upstream tooling.
+
+Install the local commit hooks once:
+
+```bash
+pre-commit install
+```
+
+Run all local lint checks:
+
+```bash
+make lint
+```
+
+Format Python code under `scripts/`:
+
+```bash
+make format
+```
+
 ## 📨Contact
 
 - Bingxiang He: hebx24@mails.tsinghua.edu.cn
@@ -205,3 +230,22 @@ If you find this work helpful, please cite us:
     <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=thunlp/OPD&type=date" />
   </picture>
 </a>
+
+
+## harness 构造简介
+
+1. 上下文管理
+
+用渐进式披露原则构建详尽的，一切文档；
+
+2. 验证与反馈
+
+配置好完善的工具和skill来让模型具备验证能力；
+完成可观测性：完善的日志，指标，可追溯链路
+
+3. 技术债清理
+
+可能遇到问题：重复代码；偏离规范的写法；不一致命名；
+做法：
+- 设置后台任务，定期扫描代码库 发现问题后直接提PR；
+- 设置后台任务，定期扫描文档库，发现问题后直接提PR；

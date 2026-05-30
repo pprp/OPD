@@ -1,0 +1,27 @@
+exclude: ^(LlamaFactory/|verl/|datasets/|figs/|logs/|checkpoint/|model/)
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.2
+    hooks:
+      - id: ruff
+        files: ^scripts/.*\.py$
+        args: [--fix]
+      - id: ruff-format
+        files: ^scripts/.*\.py$
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+        files: ^(on_policy_distillation|grpo)\.sh$
