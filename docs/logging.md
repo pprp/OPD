@@ -19,6 +19,24 @@
 
 ---
 
+## 2026-05-31 · 强化 harness feature 与恢复协议
+
+- 状态：✅ 完成
+- 做了什么：按 Anthropic long-running agent harness 原语重写 `features.json` 构造约束；新增 per-slug `progress.md` 恢复机制；将技术债治理从 Planner/Generator/Evaluator 主循环中拆出，改为独立定时扫描 / 人工排期
+- 涉及：.claude/commands/harness.md / .claude/agents/planner.md / .claude/agents/generator.md / .claude/agents/evaluator.md / docs/design-docs/harness.md / docs/exec-plans/tech-debt-tracker.md / docs/dev.md / README.md
+- 注意：仅修改文档与 Claude prompt；未实际运行 `/harness` 三智能体任务
+- 下一步：为 `features.json` / `progress.md` 加脚本级 schema 校验与 append-only 检查
+- 需人决策：否
+
+## 2026-05-31 · 审计 harness 改进空间
+
+- 状态：✅ 完成
+- 做了什么：检查 `.claude/commands/harness.md`、三角色 agent prompt、harness 设计文档与技术债接口，梳理当前 harness 可改进点
+- 涉及：.claude/commands/harness.md / .claude/agents/planner.md / .claude/agents/generator.md / .claude/agents/evaluator.md / docs/design-docs/harness.md / docs/exec-plans/tech-debt-tracker.md
+- 注意：未运行真实 `/harness` 任务；结论基于静态审计与文档/配置一致性检查
+- 下一步：将 TD-001 拆成可独立验收的 harness hardening features
+- 需人决策：否
+
 ## 2026-05-30 · 梳理 OPD 主线与 verl 接入点
 
 - 状态：✅ 完成

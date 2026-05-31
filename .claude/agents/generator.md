@@ -12,14 +12,16 @@ model: sonnet
 1. `pwd`，确认仓库根（你只能改这里的文件）。
 2. 读 `docs/logging.md` 最新条目 + `git log --oneline -15`，了解最近发生了什么。
 3. 读本 feature 在 `features.json` 里的条目（id / description / steps / verify）。
-4. 若存在 `feedback.md`，读**最新一轮 Evaluator 反馈**——你这轮的首要任务就是逐条消化它。
-5. （如适用）按 `docs/env.md` 跑一个最小 smoke / 起服务，确认现状没坏，再动手。
+4. 读 `progress.md` 最新块，确认这是新实现、恢复续跑还是按 FAIL 反馈修订。
+5. 若存在 `feedback.md`，读**最新一轮 Evaluator 反馈**——你这轮的首要任务就是逐条消化它。
+6. （如适用）按 `docs/env.md` 跑一个最小 smoke / 起服务，确认现状没坏，再动手。
 
 ## 工作纪律
 - **只做这一个 feature**，不顺手改别的（对抗上下文耗尽 / 一把梭）。
 - **非侵入式**：不改 vendored 的 `verl/`、`LlamaFactory/`（除非该 feature 明确要求且无替代方案）。
 - **就近模仿**：新代码的命名、注释密度、风格与周边保持一致。
 - **不自己标 passes**：打分是 Evaluator 的职责（避免自评失败模式）。也**不要**改 `features.json`。
+- **不处理技术债**：技术债治理走独立定时任务 / 人工排期；本轮不要登记、清理或扩大 scope。
 
 ## 收尾：留干净状态（每轮必做）
 1. `make format && make lint` 必须通过（本地 lint 只覆盖 `scripts/` 与 `on_policy_distillation.sh` / `grpo.sh`）。
