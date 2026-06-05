@@ -96,7 +96,7 @@ bash on_policy_distillation.sh
 
 
 > [!IMPORTANT]
-> **Validation in verl v0.7.0.** We found that the built-in validation path in verl v0.7.0 can **substantially under-estimate** model performance, typically by 5--7 percentage points in our runs. This issue has been fixed in verl v0.8.0. For users reproducing our experiments with verl v0.7.0, we recommend setting `MAX_VAL_RESP_LENGTH=MAX_RESP_LENGTH` and disabling in-training validation with `trainer.test_freq=-1`, then running final validation separately with our evaluation scripts under `scripts/val/`. See our [detailed analysis](https://tsinghuanlp.feishu.cn/wiki/Gku5wP15yiDtr6k8B9DcVZ8Unfd) for more details. We thank [Pengyuan Wang, PhD](mailto:wangpy@lamda.nju.edu.cn) for bringing this issue to our attention.
+> **Validation in verl v0.7.0.** We found that the built-in validation path in verl v0.7.0 can **substantially under-estimate** model performance, typically by 5--7 percentage points in our runs. This issue has been fixed in verl v0.8.0. For users reproducing our experiments with verl v0.7.0, we recommend setting `MAX_VAL_RESP_LENGTH=MAX_RESP_LENGTH` and disabling in-training validation with `trainer.test_freq=-1`, then running final validation separately with our evaluation scripts under `scripts/val/`. For the corresponding verl launch script, see [`verl_example/opd.sh`](verl_example/opd.sh). See our [detailed analysis](https://tsinghuanlp.feishu.cn/wiki/Gku5wP15yiDtr6k8B9DcVZ8Unfd) for more details. We thank [Pengyuan Wang, PhD](mailto:wangpy@lamda.nju.edu.cn) for bringing this issue to our attention.
 
 > [!NOTE]
 > You can use `scripts/infer/dedup_deepmath.py` to deduplicate DeepMath against DAPO-Math-17K and avoid data overlap, as the experiments shown in Section 5.2 in our paper.
@@ -189,7 +189,7 @@ If you find this work helpful, please cite us:
 
 ```bibtex
 @article{li2026rethinking,
-  title={Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe},
+  title={Rethinking on-policy distillation of large language models: Phenomenology, mechanism, and recipe},
   author={Li, Yaxuan and Zuo, Yuxin and He, Bingxiang and Zhang, Jinqian and Xiao, Chaojun and Qian, Cheng and Yu, Tianyu and Gao, Huan-ang and Yang, Wenkai and Liu, Zhiyuan and others},
   journal={arXiv preprint arXiv:2604.13016},
   year={2026}
